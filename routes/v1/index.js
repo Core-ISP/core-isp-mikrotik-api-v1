@@ -10,7 +10,8 @@ router.use('/ppp', require('./ppp/ppp_interface_remove'));
 router.use('/ppp', require('./ppp/interface_ethernet_speed_print'));
 router.use('/ppp', require('./ppp/ppp_profile_print'));
 router.use('/ppp', require('./ppp/ppp_disabled_user_print'));
-
+router.use('/ppp', require('./ppp/ppp_secret_print'));
+router.use('/ppp', require('./ppp/ppp_selected_user_details_print'));
 
 
 module.exports = router;
