@@ -14,7 +14,7 @@ router.post('/ppp_selected_user_details_print', (req, res) => {
         password: req.body.host_string.password,
         port: req.body.host_string.port || 8728
     }
-    const get_name = req.body.name
+    const name = req.body.name
 
     if (
         typeof (host_params.host) === "undefined" ||
@@ -28,9 +28,7 @@ router.post('/ppp_selected_user_details_print', (req, res) => {
             msg: "invalid"
         })
     } else {
-        try {
-            
-            const name = get_name
+        try {            
             const script = '/ppp/secret/print';
             const peramitter = ['?name=' + name]        
 
