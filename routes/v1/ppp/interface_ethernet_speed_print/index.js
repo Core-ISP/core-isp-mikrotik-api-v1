@@ -5,8 +5,8 @@ const {
 } = require('./../../../../utils/mikrotik_cmd')
 
 
-// ANCHOR ppp_active_print
-router.post('/ppp_active_print', (req, res) => {
+// ANCHOR interface_ethernet_speed_print
+router.post('/interface_ethernet_speed_print', (req, res) => {
 
     let host_params = {
         host: req.body.host_string.host,
@@ -28,13 +28,13 @@ router.post('/ppp_active_print', (req, res) => {
         })
     } else {
         try {
-            const script = '/ppp/active/print';
+            const script = '/interface/ethernet/print';
             
             without_params({
                 script,
                 host_params
             }).then(retn => {     
-                console.log("log: return ppp active print data")
+                console.log("log: return interface ethernet print data")
                 res.json({
                     host: "." + String(host_params.host).split(".")[3],
                     user: host_params.user,
@@ -50,8 +50,8 @@ router.post('/ppp_active_print', (req, res) => {
                     msg: "internal error"
                 })
             })
-        } catch (e) {  
-            console.log("ppp_active_print -> Catch Error ", e)
+        } catch (e) {
+            console.log("interface_ethernet_speed_print -> Catch Error ", e)
             res.json({
                 success: false,
                 msg: "c_error"
