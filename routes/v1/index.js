@@ -12,6 +12,7 @@ router.use('/ppp', require('./ppp/ppp_profile_print'));
 router.use('/ppp', require('./ppp/ppp_disabled_user_print'));
 router.use('/ppp', require('./ppp/ppp_secret_print'));
 router.use('/ppp', require('./ppp/ppp_selected_user_details_print'));
+router.use('/ppp', require('./ppp/ppp_enable_user_print'));
 
 
 module.exports = router;
