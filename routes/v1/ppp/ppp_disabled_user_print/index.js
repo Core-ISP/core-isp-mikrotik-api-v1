@@ -36,7 +36,7 @@ router.post('/ppp_disabled_user_print', (req, res) => {
                 host_params,
                 peramitter
             }).then(retn => {     
-                console.log("log: return ppp active print data")
+                console.log("log: return ppp disabled user print data")
                 res.json({
                     host: "." + String(host_params.host).split(".")[3],
                     user: host_params.user,
@@ -53,10 +53,10 @@ router.post('/ppp_disabled_user_print', (req, res) => {
                 })
             })
         } catch (e) {  
-            console.log("ppp_profile_print -> Catch Error ", e)
+            console.log("ppp_disabled_user_print -> Catch Error ", e)
             res.json({
                 success: false,
-                msg: "c_error"
+                msg: "catch error"
             })
         }
     }
