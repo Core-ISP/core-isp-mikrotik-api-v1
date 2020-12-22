@@ -50,4 +50,4 @@ router.post('/ppp_secret_enable', (req, res) => {
     }
 })
 
-module.export = router
+module.exports = router

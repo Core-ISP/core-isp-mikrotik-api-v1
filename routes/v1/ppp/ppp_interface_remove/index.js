@@ -50,4 +50,4 @@ router.post('/ppp_interface_remove', (req, res) => {
     }
 })
 
-module.export = router
+module.exports = router
