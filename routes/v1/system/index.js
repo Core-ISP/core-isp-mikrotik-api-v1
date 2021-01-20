@@ -5,7 +5,7 @@ const {
 } = require('./../../../utils/mikrotik_cmd')
 
 
-router.get('/resource/print', (req, res) => {
+router.get('/resource/ok', (req, res) => {
     res.send("Running OK")
 })
 
@@ -39,7 +39,7 @@ router.post('/resource/print', (req, res) => {
                 script,
                 host_params
             }).then(retn => {     
-                console.log("log: return ppp secret print data")
+                console.log("log: return -> system resource print -> data")
                 res.json({
                     host: "." + String(host_params.host).split(".")[3],
                     user: host_params.user,
