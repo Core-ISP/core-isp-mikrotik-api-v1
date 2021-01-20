@@ -12,7 +12,7 @@ app.use(BodyParser.urlencoded({ extended: false }))
 app.use(BodyParser.json())
 
 // Routers
-app.use(PATH, require('./routes/v1'))
+app.use(PATH, require('./routes'))
 app.get(PATH, (req, res) => res.send('CORE ISP Mikrotik Ok'))
 app.get('*', function (req, res) {
     console.log("Not Found Page")
