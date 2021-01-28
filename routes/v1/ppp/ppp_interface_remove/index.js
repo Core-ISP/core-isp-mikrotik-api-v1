@@ -5,7 +5,7 @@ const {
 } = require('./../../../../utils/mikrotik_cmd')
 
 
-router.post('/ppp_interface_remove', (req, res) => {
+router.post('/interface_remove', (req, res) => {
 
     let host_params = {
         host: req.body.host_string.host,

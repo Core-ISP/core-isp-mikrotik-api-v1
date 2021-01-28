@@ -6,7 +6,7 @@ const {
 
 
 // ANCHOR ppp_active_print
-router.post('/ppp_active_print', (req, res) => {
+router.post('/active_print', (req, res) => {
 
     let host_params = {
         host: req.body.host_string.host,

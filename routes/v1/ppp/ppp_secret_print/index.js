@@ -6,7 +6,7 @@ const {
 
 
 // ANCHOR ppp_secret_print
-router.post('/ppp_secret_print', (req, res) => {
+router.post('/secret_print', (req, res) => {
 
     let host_params = {
         host: req.body.host_string.host,

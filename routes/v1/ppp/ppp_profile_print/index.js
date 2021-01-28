@@ -6,7 +6,7 @@ const {
 
 
 // ANCHOR ppp_profile_print
-router.post('/ppp_profile_print', (req, res) => {
+router.post('/profile_print', (req, res) => {
 
     let host_params = {
         host: req.body.host_string.host,

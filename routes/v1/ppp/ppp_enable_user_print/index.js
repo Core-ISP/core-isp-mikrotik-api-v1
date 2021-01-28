@@ -6,7 +6,7 @@ const {
 
 
 // ANCHOR ppp_enable_user_print
-router.post('/ppp_enable_user_print', (req, res) => {
+router.post('/enable_user_print', (req, res) => {
 
     let host_params = {
         host: req.body.host_string.host,

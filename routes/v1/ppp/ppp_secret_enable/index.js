@@ -5,7 +5,7 @@ const {
 } = require('./../../../../utils/mikrotik_cmd')
 
 
-router.post('/ppp_secret_enable', (req, res) => {
+router.post('/secret_enable', (req, res) => {
 
     let host_params = {
         host: req.body.host_string.host,
