@@ -5,7 +5,7 @@ const {
 } = require('./../../../../utils/mikrotik_cmd')
 
 
-router.post('/secret_add', (req, res) => {
+router.post('/secret_disable', (req, res) => {
 
     let host_params = {
         host: req.body.host_string.host,
