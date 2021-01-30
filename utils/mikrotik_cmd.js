@@ -86,16 +86,16 @@ const without_params = ({
                 }).catch((err) => {
                     conn.close();
                     console.log("without_params -> Server Error")
-                    resolve({})
+                    resolver({})
                 });
             }).catch(err => {
                 conn.close();
                 console.log("without_params -> Server Error")
-                resolve({})
+                resolver({})
             })
         } catch (e) {
             console.log("without_params -> catch -> Server Error")
-            resolve({})
+            resolver({})
         }
     })
 }
