@@ -2,7 +2,9 @@ const express = require('express');
 const router = express.Router();
 
 // NOTE Interface
-router.use('/interface', require('./v1/interface/interface_ethernet_speed_print'));
+router.use('/interface', require('./v1/interface/interface_ethernet_print'));
+router.use('/interface', require('./v1/interface/interface_print'));
+router.use('/interface', require('./v1/interface/interface_vlan'));
 
 // NOTE PPPoE
 router.use('/ppp', require('./v1/ppp/ppp_active_print'));

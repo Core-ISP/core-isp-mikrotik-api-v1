@@ -23,7 +23,6 @@ const with_params = ({
 }) => {
     return new Promise((resolve, reject) => {
         try {
-
             const conn = connection({
                 host: host_params.host,
                 user: host_params.user,

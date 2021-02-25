@@ -5,8 +5,8 @@ const {
 } = require('../../../../utils/mikrotik_cmd')
 
 
-// ANCHOR interface_ethernet_speed_print
-router.post('/interface_ethernet_speed_print', (req, res) => {
+// ANCHOR interface print
+router.post('/print', (req, res) => {
 
     let host_params = {
         host: req.body.host_string.host,
@@ -28,8 +28,7 @@ router.post('/interface_ethernet_speed_print', (req, res) => {
         })
     } else {
         try {
-            
-            const script = '/interface/ethernet/print';
+            const script = '/interface/print';
             without_params({
                 script,
                 host_params

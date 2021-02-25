@@ -2,11 +2,11 @@ const express = require('express'),
     router = express.Router();
 const {
     without_params
-} = require('./../../../../utils/mikrotik_cmd')
+} = require('../../../../utils/mikrotik_cmd')
 
 
-// ANCHOR ppp_profile_print
-router.post('/profile_print', (req, res) => {
+// ANCHOR ethernet_speed_print
+router.post('/ethernet_print', (req, res) => {
 
     let host_params = {
         host: req.body.host_string.host,
@@ -28,17 +28,17 @@ router.post('/profile_print', (req, res) => {
         })
     } else {
         try {
-            const script = '/ppp/profile/print';
-
+            
+            const script = '/interface/ethernet/print';
             without_params({
                 script,
                 host_params
-            }).then(retn => {
-                console.log("log: return ppp active print data")
+            }).then(retn => {     
+                console.log("log: return interface ethernet print data")
                 retn = Array.isArray(retn) ? retn : [retn]
                 res.json({
                     success: true,
-                    message: "done",
+                    message: "done", 
                     host: "." + String(host_params.host).split(".")[3],
                     user: host_params.user,
                     mikrotik_json: retn,
@@ -54,7 +54,7 @@ router.post('/profile_print', (req, res) => {
                 })
             })
         } catch (e) {
-            console.log("ppp_profile_print -> Catch Error ", e)
+            console.log("interface_ethernet_speed_print -> Catch Error ", e)
             res.json({
                 success: false,
                 message: "c_error",
