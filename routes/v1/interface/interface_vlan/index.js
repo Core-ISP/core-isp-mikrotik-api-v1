@@ -37,16 +37,16 @@ router.post('/vlan_print', (req, res) => {
                 retn = Array.isArray(retn) ? retn : [retn]
                 res.json({
                     success: true,
-                    message: "done", 
+                    message: "interface_ethernet_speed_print -> done", 
                     host: "." + String(host_params.host).split(".")[3],
                     user: host_params.user,
                     mikrotik_json: retn,
                 })
             }).catch(err => {
-                console.log("Internal Error", err)
+                console.log("interface_ethernet_speed_print -> Internal Error", err)
                 res.json({
                     success: false,
-                    message: "internal error",
+                    message: "interface_ethernet_speed_print -> internal error",
                     host: "." + String(host_params.host).split(".")[3],
                     user: host_params.user,
                     mikrotik_json: [],

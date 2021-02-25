@@ -33,27 +33,27 @@ router.post('/print', (req, res) => {
                 script,
                 host_params
             }).then(retn => {     
-                console.log("log: return interface ethernet print data")
+                console.log("log: return interface print data")
                 retn = Array.isArray(retn) ? retn : [retn]
                 res.json({
                     success: true,
-                    message: "done", 
+                    message: "interface_print -> done", 
                     host: "." + String(host_params.host).split(".")[3],
                     user: host_params.user,
                     mikrotik_json: retn,
                 })
             }).catch(err => {
-                console.log("Internal Error", err)
+                console.log("interface_print -> Internal Error", err)
                 res.json({
                     success: false,
-                    message: "internal error",
+                    message: "interface_print -> internal error",
                     host: "." + String(host_params.host).split(".")[3],
                     user: host_params.user,
                     mikrotik_json: [],
                 })
             })
         } catch (e) {
-            console.log("interface_ethernet_speed_print -> Catch Error ", e)
+            console.log("interface_print -> Catch Error ", e)
             res.json({
                 success: false,
                 message: "c_error",
