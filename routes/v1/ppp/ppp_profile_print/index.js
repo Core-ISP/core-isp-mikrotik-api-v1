@@ -29,32 +29,38 @@ router.post('/profile/print', (req, res) => {
     } else {
         try {
             const script = '/ppp/profile/print';
-            
+
             without_params({
                 script,
                 host_params
-            }).then(retn => {     
+            }).then(retn => {
                 console.log("log: return ppp active print data")
+                retn = Array.isArray(retn) ? retn : [retn]
                 res.json({
+                    success: true,
+                    message: "done",
                     host: "." + String(host_params.host).split(".")[3],
                     user: host_params.user,
                     mikrotik_json: retn,
-                    msg: "done" 
                 })
             }).catch(err => {
                 console.log("Internal Error", err)
                 res.json({
                     success: false,
+                    message: "internal error",
                     host: "." + String(host_params.host).split(".")[3],
                     user: host_params.user,
-                    msg: "internal error"
+                    mikrotik_json: [],
                 })
             })
-        } catch (e) {  
+        } catch (e) {
             console.log("ppp_profile_print -> Catch Error ", e)
             res.json({
                 success: false,
-                msg: "c_error"
+                message: "c_error",
+                host: "",
+                user: host_params.user,
+                mikrotik_json: [],
             })
         }
     }

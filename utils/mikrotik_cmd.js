@@ -42,17 +42,17 @@ const with_params = ({
                     }).catch((err) => {
                         conn.close();
                         console.log("with_params -> Server Error")
-                        resolve({})
+                        resolve([])
                     });
                 })
                 .catch(err => {
                     conn.close();
                     console.log("with_params -> Server Error")
-                    resolve({})
+                    resolve([])
                 })
         } catch (e) {
             console.log("with_params -> catch -> Server Error")
-            resolve({})
+            resolve([])
         }
     })
 }
@@ -86,16 +86,16 @@ const without_params = ({
                 }).catch((err) => {
                     conn.close();
                     console.log("without_params -> Server Error")
-                    resolver({})
+                    resolver([])
                 });
             }).catch(err => {
                 conn.close();
                 console.log("without_params -> Server Error")
-                resolver({})
+                resolver([])
             })
         } catch (e) {
             console.log("without_params -> catch -> Server Error")
-            resolver({})
+            resolver([])
         }
     })
 }

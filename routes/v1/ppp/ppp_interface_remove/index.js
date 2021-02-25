@@ -26,8 +26,10 @@ router.post('/interface_remove', (req, res) => {
             host_params
         }).then(retn => {
             console.log("log: ppp interface remove")
+            retn = Array.isArray(retn) ? retn : [retn]
             res.json({
                 success: true,
+                message: "done",
                 host: "." + String(host_params.host).split(".")[3],
                 user: host_params.user,    
                 mikrotik_json: retn
@@ -36,16 +38,20 @@ router.post('/interface_remove', (req, res) => {
             console.log("Internal Error", err)
             res.json({
                 success: false,
+                message: 'Internal Error',
                 host: "." + String(host_params.host).split(".")[3],
-                user: host_params.user,    
-                message: 'Internal Error'
+                user: host_params.user,   
+                mikrotik_json: [], 
             })
         })
     } catch (e) {
         console.log("Internal Error", e)
         res.json({
             success: false,
-            message: 'Internal Error'
+            message: 'Internal Error',
+            host: "",
+            user: host_params.user,
+            mikrotik_json: [],
         })
     }
 })

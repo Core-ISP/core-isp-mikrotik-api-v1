@@ -37,26 +37,32 @@ router.post('/disabled_user_print', (req, res) => {
                 peramitter
             }).then(retn => {     
                 console.log("log: return ppp disabled user print data")
+                retn = Array.isArray(retn) ? retn : [retn]
                 res.json({
+                    success: true,
+                    message: "done",
                     host: "." + String(host_params.host).split(".")[3],
                     user: host_params.user,
                     mikrotik_json: retn,
-                    msg: "done" 
                 })
             }).catch(err => {
                 console.log("Internal Error", err)
                 res.json({
                     success: false,
+                    message: "internal error",
                     host: "." + String(host_params.host).split(".")[3],
                     user: host_params.user,
-                    msg: "internal error"
+                    mikrotik_json: [],
                 })
             })
         } catch (e) {  
             console.log("ppp_disabled_user_print -> Catch Error ", e)
             res.json({
                 success: false,
-                msg: "catch error"
+                message: "catch error",
+                host: "",
+                user: host_params.user,
+                mikrotik_json: [],
             })
         }
     }
