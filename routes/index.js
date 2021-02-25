@@ -18,6 +18,14 @@ router.use('/ppp', require('./v1/ppp/ppp_secret_print'));
 router.use('/ppp', require('./v1/ppp/ppp_selected_user_details_print'));
 router.use('/ppp', require('./v1/ppp/ppp_enable_user_print'));
 
+// NOTE IP
+router.use('/ip', [
+    require('./v1/ip/address'),
+    require('./v1/ip/arp')
+
+]);
+
+
 // NOTE System
 router.use('/system', require('./v1/system'));
 
