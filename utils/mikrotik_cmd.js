@@ -10,7 +10,7 @@ const connection = require('../function/connection');
  */
 
 
-const with_params = ({
+const with_params = async ({
     script,
     peramitter = [],
     host_params =
@@ -40,24 +40,24 @@ const with_params = ({
                         resolve(data)
                     }).catch((err) => {
                         conn.close();
-                        console.log("with_params -> Server Error")
+                        console.log("with_params -> Server Exec Error")
                         resolve([])
                     });
                 })
                 .catch(err => {
                     conn.close();
-                    console.log("with_params -> Server Error")
+                    console.log("with_params -> Server Connect Error")
                     resolve([])
                 })
         } catch (e) {
-            console.log("with_params -> catch -> Server Error")
+            console.log("with_params -> catch -> Server Catch Error")
             resolve([])
         }
     })
 }
 
 
-const without_params = ({
+const without_params = async ({
     script,
     host_params =
     {
@@ -84,16 +84,16 @@ const without_params = ({
                     resolver(get)
                 }).catch((err) => {
                     conn.close();
-                    console.log("without_params -> Server Error")
+                    console.log("without_params -> Server Exec Error")
                     resolver([])
                 });
             }).catch(err => {
                 conn.close();
-                console.log("without_params -> Server Error")
+                console.log("without_params -> Server Connect Error")
                 resolver([])
             })
         } catch (e) {
-            console.log("without_params -> catch -> Server Error")
+            console.log("without_params -> catch -> Server Catch Error")
             resolver([])
         }
     })

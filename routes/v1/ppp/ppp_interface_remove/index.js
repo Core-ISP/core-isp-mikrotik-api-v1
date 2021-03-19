@@ -8,10 +8,10 @@ const {
 router.post('/interface_remove', (req, res) => {
 
     let host_params = {
-        host: req.body.host_string.host,
-        user: req.body.host_string.user,
-        password: req.body.host_string.password,
-        port: req.body.host_string.port || 8728
+        host: req.body?.host_string?.host,
+        user: req.body?.host_string?.user,
+        password: req.body?.host_string?.password,
+        port: req.body?.host_string?.port || 8728
     }
     const name = req.body.name
 
