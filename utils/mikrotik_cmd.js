@@ -1,14 +1,5 @@
 const connection = require('../function/connection');
 
-/**
-    connString: {
-        host: '27.147.202.78',
-        port: 8728,
-        user: 'arnob',
-        password: 'arnob@20'
-    }
- */
-
 
 const with_params = async ({
     script,
@@ -40,13 +31,13 @@ const with_params = async ({
                         resolve(data)
                     }).catch((err) => {
                         conn.close();
-                        console.log("with_params -> Server Exec Error")
+                        console.log("with_params -> Server Exec Error", err)
                         resolve([])
                     });
                 })
                 .catch(err => {
                     conn.close();
-                    console.log("with_params -> Server Connect Error")
+                    console.log("with_params -> Server Connect Error", err)
                     resolve([])
                 })
         } catch (e) {
@@ -84,12 +75,12 @@ const without_params = async ({
                     resolver(get)
                 }).catch((err) => {
                     conn.close();
-                    console.log("without_params -> Server Exec Error")
+                    console.log("without_params -> Server Exec Error", err)
                     resolver([])
                 });
             }).catch(err => {
                 conn.close();
-                console.log("without_params -> Server Connect Error")
+                console.log("without_params -> Server Connect Error", err)
                 resolver([])
             })
         } catch (e) {

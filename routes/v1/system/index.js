@@ -39,7 +39,9 @@ router.post('/resource/print', (req, res) => {
                 script,
                 host_params
             }).then(retn => {     
-                console.log("log: return -> system resource print -> data")
+                
+                console.log("log: system resource print")
+
                 retn = Array.isArray(retn) ? retn : [retn]
                 res.json({
                     success: true,
@@ -48,7 +50,9 @@ router.post('/resource/print', (req, res) => {
                     user: host_params.user,
                     mikrotik_json: retn,
                 })
+                
             }).catch(err => {
+
                 console.log("Internal Error", err)
                 res.json({
                     success: false,
@@ -57,8 +61,10 @@ router.post('/resource/print', (req, res) => {
                     user: host_params.user,
                     mikrotik_json: [],
                 })
+
             })
         } catch (e) {  
+
             console.log("ppp_secret_print -> Catch Error ", e)
             res.json({
                 success: false,
@@ -67,6 +73,7 @@ router.post('/resource/print', (req, res) => {
                 user: host_params.user,
                 mikrotik_json: [],
             })
+
         }
     }
 })
