@@ -3,7 +3,7 @@ name: Mikrotik Integration
 on: 
   push:
     branches:
-      -  feature/kube
+      -  master
 
 jobs:
   Deploy:
