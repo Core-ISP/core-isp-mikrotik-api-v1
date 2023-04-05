@@ -14,7 +14,7 @@ spec:
         app: mikrotik-api
     spec:
       containers:
-      - image: arnobdev/mikrotik-api:master-927842d
+      - image: arnobdev/mikrotik-api:master-6834a95
         name: mikrotik-api
         ports:
         - containerPort: 4324
