@@ -1,8 +1,8 @@
 version: '3'
 
 services:
-  test-app:
-    container_name: test-apps
+  core-isp-mikrotik-app:
+    container_name: core-isp-mikrotik-apps
     build:
       context: .
       dockerfile: Dockerfile
